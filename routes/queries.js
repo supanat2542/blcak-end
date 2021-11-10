@@ -17,7 +17,7 @@ const moment = require('moment');
 // });
 
 const pool = new Pool({
-    postgresql:'agbyrcsfpepycl:f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580@ec2-54-160-35-196.compute-1.amazonaws.com:5432/deulokkuu2t01v',
+    connectionString : process.env.DATABASE_URL = 'postgres://agbyrcsfpepycl:f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580@ec2-54-160-35-196.compute-1.amazonaws.com:5432/deulokkuu2t01v',
     ssl: {
       rejectUnauthorized: false
     }
