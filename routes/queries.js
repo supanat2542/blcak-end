@@ -1,12 +1,28 @@
 const Pool = require('pg').Pool;
 const moment = require('moment');
+// const pool = new Pool({
+//     user: 'postgres',
+//     host: 'localhost',
+//     database: 'postgres',
+//     password: '1234',
+//     port: '5433',
+// });
+
+// const pool = new Pool({
+//     user: 'agbyrcsfpepycl',
+//     host: 'ec2-54-160-35-196.compute-1.amazonaws.com',
+//     database: 'deulokkuu2t01v',
+//     password: 'f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580',
+//     port: '5432',
+// });
+
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: '1234',
-    port: '5433',
-});
+    postgresql:'agbyrcsfpepycl:f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580@ec2-54-160-35-196.compute-1.amazonaws.com:5432/deulokkuu2t01v',
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
+//   psql postgres://agbyrcsfpepycl:f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580@ec2-54-160-35-196.compute-1.amazonaws.com:5432/deulokkuu2t01v
 
 /****************************************************** GET API ALL TABLE *********************************************************/
 
@@ -22,6 +38,7 @@ const getTag = async(req, res) => {
     } catch (error) {
         output = {
             status: "failed",
+            shows: pool.connect,
             result: error
         }
     }
