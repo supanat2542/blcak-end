@@ -1,21 +1,5 @@
-const Pool = require('pg').Pool;
 const moment = require('moment');
-// const pool = new Pool({
-//     user: 'postgres',
-//     host: 'localhost',
-//     database: 'postgres',
-//     password: '1234',
-//     port: '5433',
-// });
-
-// const pool = new Pool({
-//     user: 'agbyrcsfpepycl',
-//     host: 'ec2-54-160-35-196.compute-1.amazonaws.com',
-//     database: 'deulokkuu2t01v',
-//     password: 'f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580',
-//     port: '5432',
-// });
-
+const Pool = require('pg').Pool;
 const pool = new Pool({
     connectionString : process.env.DATABASE_URL = 'postgres://agbyrcsfpepycl:f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580@ec2-54-160-35-196.compute-1.amazonaws.com:5432/deulokkuu2t01v',
     ssl: {
