@@ -1,12 +1,22 @@
-const moment = require('moment');
 const Pool = require('pg').Pool;
+const moment = require('moment');
 const pool = new Pool({
-    connectionString : process.env.DATABASE_URL = 'postgres://agbyrcsfpepycl:f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580@ec2-54-160-35-196.compute-1.amazonaws.com:5432/deulokkuu2t01v',
-    ssl: {
-      rejectUnauthorized: false
-    }
-  });
-//   psql postgres://agbyrcsfpepycl:f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580@ec2-54-160-35-196.compute-1.amazonaws.com:5432/deulokkuu2t01v
+    user: 'mable',
+    host: 'mean.psu.ac.th',
+    database: 'mable',
+    password: 'zxc123**',
+    port: '5432',
+});
+
+// --------------------------------------------------- Heruko -----------------------------------------------------------------------//
+// const moment = require('moment');
+// const Pool = require('pg').Pool;
+// const pool = new Pool({
+//     connectionString : process.env.DATABASE_URL = 'postgres://agbyrcsfpepycl:f966dbef63a39462ad3be17d9d4cfa17cfb82eb36c2dd9cf31bb120fc2c23580@ec2-54-160-35-196.compute-1.amazonaws.com:5432/deulokkuu2t01v',
+//     ssl: {
+//       rejectUnauthorized: false
+//     }
+//   });
 
 /****************************************************** GET API ALL TABLE *********************************************************/
 
