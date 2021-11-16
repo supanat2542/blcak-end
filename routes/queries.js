@@ -56,6 +56,29 @@ const getTaguse = async(req, res) => {
     }
     res.json(output);
 }
+/********************************* GET Edit **********************************/
+
+const getEdit = async(req, res) => {
+    try {
+        console.log(req.query)
+        let tag_address = "NULL";
+                tag_address = req.query.tag_address;
+        const result = await pool.query(`SELECT visitor_id, first_name, last_name, tel, category, id_civiliz, contract, time_start, time_stop, tag_address
+        FROM diis.visitor
+        where tag_address = '${tag_address}' and time_stop is null ;
+        `);
+        output = {
+            status: "success",
+            result: result
+        }
+    } catch (error) {
+        output = {
+            status: "failed",
+            result: error
+        }
+    }
+    res.json(output);
+}
 
 /********************************* GET TABLE SCANNER **********************************/
 
@@ -591,6 +614,27 @@ const updateVisitor = async(req, res) => {
     res.json(output);
 }
 
+/*************************************** UPDATE data ******************************/
+
+const updateData = async(req, res) => {
+    try {
+        console.log(req.params.id)
+        console.log(req.body)
+        console.log(`UPDATE diis.visitor SET first_name='${req.body.first_name}', last_name='${req.body.last_name}', tel='${req.body.tel}', category='${req.body.category}', id_civiliz='${req.body.id_civiliz}', contract='${req.body.contract}' where visitor_id = ${req.params.id};`)
+        const result = await pool.query(`UPDATE diis.visitor SET first_name='${req.body.first_name}', last_name='${req.body.last_name}', tel='${req.body.tel}', category='${req.body.category}', id_civiliz='${req.body.id_civiliz}', contract='${req.body.contract}' where visitor_id = ${req.params.id};`);
+        output = {
+            status: "success",
+            result: result
+        };
+    } catch (error) {
+        output = {
+            status: "failed",
+            result: error
+        };
+    }
+    res.json(output);
+}
+
 /*************************************** UPDATE TABLE ITEM ******************************/
 
 const updateItem = async(req, res) => {
@@ -817,4 +861,6 @@ module.exports = {
     createItem,
     getItem,
     updateItem,
+    getEdit,
+    updateData
 }
