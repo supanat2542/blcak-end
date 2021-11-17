@@ -10,6 +10,8 @@ router.put('/tags/:id', db.updateTag);
 router.delete('/tags/:id', db.deleteTag);
 router.get('/editdata',db.getEdit);
 router.put('/updateData/:id',db.updateData);
+router.get('/editItem',db.getEditItem);
+router.put('/updateDataItem/:id',db.updateDataItem);
 
 router.get('/taguse', db.getTaguse);
 router.post('/taguse', db.createTaguse);
