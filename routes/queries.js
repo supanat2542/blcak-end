@@ -165,9 +165,15 @@ const getVisitor = async(req, res) => {
 
 const getItem = async(req, res) => {
     try {
+        let item_id = "NULL";
+        let item_select = ``;
+            if (req.query.item_id != undefined) {
+                item_id = req.query.item_id;
+                item_select =`and item_id = ${item_id}`
+        }
         const result = await pool.query(`SELECT item_id, tool_name, "Owner", parcel_number, tool_person, detail, time_start, time_stop, items.tag_address,tag_id
         FROM diis.items,diis.tag 
-        Where tag.tag_address = items.tag_address
+        Where tag.tag_address = items.tag_address ${item_select}
         order by time_stop desc`);
         output = {
             status: "success",
